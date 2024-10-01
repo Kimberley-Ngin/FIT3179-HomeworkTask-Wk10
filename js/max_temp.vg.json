@@ -128,7 +128,10 @@
               "type": "quantitative"}     
       }
     }
-  ]
+  ],
+  "config": {
+    "font": "Times New Roman"
+    }
 }
       
     
