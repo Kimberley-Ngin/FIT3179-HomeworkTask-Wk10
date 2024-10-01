@@ -35,23 +35,34 @@
         ],
         "name": "City Selection: "
       }
-    }
+    },
+    {
+      "name": "Year_Above",
+      "value": 2010,
+      "bind": {
+      "input": "range",
+      "min": 2005,
+      "max": 2023,
+      "step": 1,
+      "name": "Year: "
+      }
+      }
   ],
   "transform": [
     {
       "filter": "city_selection == null || datum.state == city_selection"
+    },
+    {
+      "filter": "datum.year > Year_Above"
     }
   ],
   "layer": [
     {
-      "mark": "line",
+      "mark": "bar",
       "encoding": {
         "x": {
-          "timeUnit": {
-            "unit": "year"
-          },
           "field": "year",
-          "type": "temporal",
+          "type": "nominal",
           "title": "Year"
         },
         "y": {
@@ -59,9 +70,25 @@
           "type": "quantitative",
           "title": "Annual Maximum Temperature"
         },
+        "xOffset": {"field": "state"},
         "color": {
           "field": "state",
           "type": "nominal"
+        },
+        "opacity": {"value": 0.7}
+      }
+    },
+    {
+      "mark": {
+        "type": "rule",
+        "color": "red",
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "y": {
+          "aggregate": "average",
+          "field": "avg_max_temp",
+          "type": "quantitative"
         }
       }
     }
