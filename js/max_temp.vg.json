@@ -64,11 +64,8 @@
         },
       "encoding": {
         "x": {
-          "timeUnit": {
-              "unit": "year"
-            },
           "field": "year",
-          "type": "temporal",
+          "type": "nominal",
           "title": "Year"
         },
         "y": {
@@ -84,9 +81,8 @@
         "tooltip": [
             {
               "field": "year",
-              "type": "temporal",
-              "title": "Year",
-              "format": "%Y"
+              "type": "nominal",
+              "title": "Year"
             },
             {
               "field": "avg_max_temp",
