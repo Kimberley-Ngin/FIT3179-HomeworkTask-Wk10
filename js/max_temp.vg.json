@@ -38,7 +38,7 @@
     },
     {
       "name": "Year_Above",
-      "value": 2010,
+      "value": 2005,
       "bind": {
       "input": "range",
       "min": 2005,
@@ -58,11 +58,17 @@
   ],
   "layer": [
     {
-      "mark": "bar",
+      "mark": {
+            "type": "line",
+            "interpolate": "monotone"
+        },
       "encoding": {
         "x": {
+          "timeUnit": {
+              "unit": "year"
+            },
           "field": "year",
-          "type": "nominal",
+          "type": "temporal",
           "title": "Year"
         },
         "y": {
@@ -70,12 +76,29 @@
           "type": "quantitative",
           "title": "Annual Maximum Temperature"
         },
-        "xOffset": {"field": "state"},
         "color": {
           "field": "state",
           "type": "nominal"
         },
-        "opacity": {"value": 0.7}
+        "opacity": {"value": 0.6},
+        "tooltip": [
+            {
+              "field": "year",
+              "type": "temporal",
+              "title": "Year",
+              "format": "%Y"
+            },
+            {
+              "field": "avg_max_temp",
+              "type": "quantitative",
+              "title": "Annual Maximmum Temperature"
+            },
+            {
+              "field": "state",
+              "type": "nominal",
+              "title": "Capital City"
+            }
+          ]
       }
     },
     {
@@ -90,6 +113,23 @@
           "field": "avg_max_temp",
           "type": "quantitative"
         }
+      }
+    },
+    {
+      "mark": {"type": "text", "fontSize" : 11, "fontWeight":"bold", "align" : "left"},
+      "transform": [
+        {
+          "aggregate": [{
+           "op": "average",
+           "field": "avg_max_temp",
+           "as": "mean_y_axis"
+          }]
+        }
+      ],      
+      "encoding": {
+        "text": {"value": "Average"},
+        "y": {"field": "mean_y_axis",
+              "type": "quantitative"}     
       }
     }
   ]
