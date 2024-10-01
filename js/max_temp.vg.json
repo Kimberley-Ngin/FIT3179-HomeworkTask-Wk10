@@ -1,0 +1,72 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Annual Maximum Temperature in Australia by Capital City",
+  "width": 800,
+  "height": 400,
+  "data": {
+    "url": "https://raw.githubusercontent.com/Kimberley-Ngin/FIT3179-HomeworkTask-Wk10/refs/heads/main/data/annual_max_temp%20copy.csv"
+  },
+  "params": [
+    {
+      "name": "city_selection",
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "Darwin",
+          "Brisbane",
+          "Sydney",
+          "Canberra",
+          "Melbourne",
+          "Adelaide",
+          "Hobart",
+          "Perth"
+        ],
+        "labels": [
+          "Show All",
+          "Darwin",
+          "Brisbane",
+          "Sydney",
+          "Canberra",
+          "Melbourne",
+          "Adelaide",
+          "Hobart",
+          "Perth"
+        ],
+        "name": "City Selection: "
+      }
+    }
+  ],
+  "transform": [
+    {
+      "filter": "city_selection == null || datum.state == city_selection"
+    }
+  ],
+  "layer": [
+    {
+      "mark": "line",
+      "encoding": {
+        "x": {
+          "timeUnit": {
+            "unit": "year"
+          },
+          "field": "year",
+          "type": "temporal",
+          "title": "Year"
+        },
+        "y": {
+          "field": "avg_max_temp",
+          "type": "quantitative",
+          "title": "Annual Maximum Temperature"
+        },
+        "color": {
+          "field": "state",
+          "type": "nominal"
+        }
+      }
+    }
+  ]
+}
+      
+    
+  
