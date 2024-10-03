@@ -112,7 +112,12 @@
       }
     },
     {
-      "mark": {"type": "text", "fontSize" : 11, "fontWeight":"bold", "align" : "left"},
+      "mark": {"type": "text", 
+                  "fontSize" : 11, 
+                  "fontWeight":"bold", 
+                  "align" : "left",
+                  "dx": 10,
+                  "dy": -10},
       "transform": [
         {
           "aggregate": [{
