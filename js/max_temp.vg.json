@@ -132,6 +132,28 @@
         "y": {"field": "mean_y_axis",
               "type": "quantitative"}     
       }
+    },
+    {
+      "mark": {"type": "text",
+                "fontSize": 11,
+                "fontWeight": "lighter",
+                "align": "left",
+                "dx": -340,
+                "dy": 60,
+                "color": "grey"
+              },
+      "encoding": {
+        "text": {
+          "value": "Annual maximum temperatures in Australia peaked in 2009 and 2019, coinciding with the 2009 Black Saturday and 2019/20 Black Summer bushfires."
+        },
+        "opacity": {
+          "condition": {
+            "test": "!city_selection",
+            "value": 1
+          },
+          "value": 0  
+        }
+      }
     }
   ],
   "config": {
