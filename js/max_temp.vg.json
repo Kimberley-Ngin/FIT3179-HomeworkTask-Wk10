@@ -42,7 +42,7 @@
       "bind": {
       "input": "range",
       "min": 2005,
-      "max": 2023,
+      "max": 2022,
       "step": 1,
       "name": "Year: "
       }
@@ -92,7 +92,7 @@
             {
               "field": "city",
               "type": "nominal",
-              "title": "Capital City"
+              "title": "City"
             }
           ]
       }
