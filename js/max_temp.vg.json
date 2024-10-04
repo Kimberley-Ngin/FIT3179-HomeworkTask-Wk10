@@ -50,7 +50,7 @@
   ],
   "transform": [
     {
-      "filter": "city_selection == null || datum.state == city_selection"
+      "filter": "city_selection == null || datum.city == city_selection"
     },
     {
       "filter": "datum.year > Year_Above"
@@ -74,7 +74,7 @@
           "title": "Annual Maximum Temperature"
         },
         "color": {
-          "field": "state",
+          "field": "city",
           "type": "nominal"
         },
         "opacity": {"value": 0.6},
@@ -90,7 +90,7 @@
               "title": "Annual Maximmum Temperature"
             },
             {
-              "field": "state",
+              "field": "city",
               "type": "nominal",
               "title": "Capital City"
             }
